@@ -1,18 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300");
+* {
+  margin: 0;
+  padding: 0; }
+
 body {
-  margin: auto;
   background: white;
   color: white; }
 
 .container {
   position: absolute;
+  display: block;
   top: 50%;
   left: 50%;
   height: auto;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  padding: 20px;
   background: #191919;
   text-align: center;
   border-radius: 10px; }
@@ -21,6 +24,7 @@ body {
     color: #fe1662; }
 
 .content {
+  display: block;
   font-family: Indie Flower;
   font-size: 3em;
   text-transform: uppercase;
@@ -29,19 +33,13 @@ body {
   margin-bottom: 20px; }
 
 .details {
+  display: inline-block;
   width: 100%;
-  height: auto;
   background-color: #404040;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   border-radius: 0 0 10px 10px; }
 
 .btn-next {
   width: 200px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   font-size: 2em;
   margin: 4px 5px;
   background: #fe1662;

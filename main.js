@@ -1,9 +1,7 @@
-var p = document.getElementById("next");
-p.onclick = function() {
-  getQuote();
-};
+var buttonNext = document.getElementById("next");
+buttonNext.addEventListener("click", showQuote);
 
-function getQuote() {
+function showQuote() {
   $.ajax({
     url:
       "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json",
@@ -12,8 +10,6 @@ function getQuote() {
       $(".title").text("—" + data.quoteAuthor);
       //       QUOTE
       $(".content").html('"' + data.quoteText + '"');
-      var a = document.getElementById("title");
-      a.href = data.link;
       let letters = document.querySelector("#content").innerText.split("");
       // let quote = document.querySelector('#title').innerHTML.split('');
       document.querySelector("#content").innerHTML = letters.randomColor();
@@ -51,5 +47,3 @@ Array.prototype.randomColor = function() {
   });
   return html;
 };
-
-
