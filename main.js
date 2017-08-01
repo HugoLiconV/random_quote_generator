@@ -1,22 +1,42 @@
-var buttonNext = document.getElementById("next");
-buttonNext.addEventListener("click", showQuote);
+$(document).ready(function() {
+  getQuote();
+});
 
-function showQuote() {
+let buttonNext = document.getElementById("next");
+buttonNext.addEventListener("click", getQuote);
+
+// Show the quote
+function showQuote(data) {
+  const author = data.quoteAuthor || unknow;
+  $(".author").text("— " + author);
+  $(".content").html('"' + data.quoteText + '"');
+  const letters = document.querySelector("#content").innerText.split("");
+  document.querySelector("#content").innerHTML = letters.randomColor();
+}
+
+//Create tweet
+function createTweet(data) {
+  if (data.quoteText > 140) {
+    $("#tweet").html('Sorry! Your Tweet contains more than 140 characters');
+  } else {
+    const author = data.quoteAuthor || unknow;
+    const twitterLink =
+      "https://twitter.com/intent/tweet?hashtags=quotes&text=";
+    const bodyTweet = encodeURIComponent(`"${data.quoteText}" — ${author}`);
+    $("#tweet").attr("href", `${twitterLink}${bodyTweet}`);
+  }
+}
+// Get the quote
+function getQuote() {
+  let endpoint =
+    "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?";
   $.ajax({
-    url:
-      "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json",
+    url: endpoint,
+    dataType: "jsonp",
     success: function(data) {
-      //       AUTHOR
-      $(".title").text("—" + data.quoteAuthor);
-      //       QUOTE
-      $(".content").html('"' + data.quoteText + '"');
-      let letters = document.querySelector("#content").innerText.split("");
-      // let quote = document.querySelector('#title').innerHTML.split('');
-      document.querySelector("#content").innerHTML = letters.randomColor();
-
-      // document.querySelector('#title').innerHTML = quote.randomColor();
-    },
-    cache: false
+      showQuote(data);
+      createTweet(data);
+    }
   });
 }
 

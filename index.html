@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/Styles/style.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-
+  <script src="https://use.fontawesome.com/147a050699.js"></script>
   <title>Random Quote Generator</title>
 </head>
 
-<body onload="showQuote()">
+<body>
   <div class="container">
+    <div class="title">
+      <h1>Random Quote Machine</h1>
+    </div>
     <!--Content Quote-->
     <div class="content" id="content">
       <p>Voluptate sed animi aut dicta consequuntur vel. Ex officiis ut sed dolor quia rerum non non deleniti. Itaque dolor
@@ -20,9 +22,13 @@
         quo assumenda. Omnis ipsam nostrum molestiae et.</p>
     </div>
     <div class="details">
-      <p class="title">Author</p>
-      <button class="btn-next" id="next">Generate Quote</button>
-      <button>Twitter</button>
+      <button class="btn" >
+        <a id="tweet" href="" target="_blank">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a> 
+      </button>
+      <p class="author">Author</p>
+      <button class="btn" id="next">New Quote</button>
     </div>
   </div>
 </body>
