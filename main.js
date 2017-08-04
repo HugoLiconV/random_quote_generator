@@ -16,15 +16,14 @@ function showQuote(data) {
 
 //Create tweet
 function createTweet(data) {
-  if (data.quoteText > 140) {
-    $("#tweet").html('Sorry! Your Tweet contains more than 140 characters');
-  } else {
-    const author = data.quoteAuthor || unknow;
-    const twitterLink =
-      "https://twitter.com/intent/tweet?hashtags=quotes&text=";
-    const bodyTweet = encodeURIComponent(`"${data.quoteText}" — ${author}`);
-    $("#tweet").attr("href", `${twitterLink}${bodyTweet}`);
-  }
+  let author = data.quoteAuthor || unknow;
+  let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&text=";
+  let bodyTweet = encodeURIComponent(`"${data.quoteText}" — ${author}`);
+  $("#tweet").attr("href", `${twitterLink}${bodyTweet}`);
+
+  $("#tweet").click(function() {
+    window.open(this.getAttribute("href"));
+  });
 }
 // Get the quote
 function getQuote() {

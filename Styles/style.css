@@ -37,6 +37,7 @@ body {
 
 .details {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   width: 100%;
   padding: 10px 0;
@@ -47,6 +48,7 @@ body {
 
 .btn {
   cursor: pointer;
+  text-decoration: none;
   margin-left: 20px;
   margin-right: 20px;
   padding: 5px 15px;
@@ -61,10 +63,14 @@ body {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
-  -webkit-transition: background 0.8s ease;
-  -moz-transition: background 0.8s ease;
-  -ms-transition: background 0.8s ease;
-  transition: background 0.8s ease;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
   -webkit-box-shadow: 3px 3px 0 #fe4984;
   -moz-box-shadow: 3px 3px 0 #fe4984;
   -ms-box-shadow: 3px 3px 0 #fe4984;
@@ -81,11 +87,37 @@ body {
     box-shadow: 2px 2px 0 transparent; }
   .btn:focus {
     outline: 0; }
+  .btn a {
+    color: #fe4984; }
+    .btn a:hover {
+      color: white; }
 
 .author {
   font-family: Roboto;
   color: white;
   font-size: 2em;
   text-transform: uppercase; }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px; }
+
+  .content {
+    padding: 1rem;
+    font-size: 2em;
+    margin: 0; }
+
+  .details {
+    display: block;
+    text-align: center; }
+
+  .btn {
+    display: block;
+    margin: 10px auto; }
+
+  .author {
+    font-size: 1rem; } }
 
 /*# sourceMappingURL=style.css.map */

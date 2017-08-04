@@ -58,6 +58,7 @@ body {
 
 .details {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   width: 100%;
   padding: 10px 0;
@@ -68,8 +69,9 @@ body {
   }
 }
 
-.btn {
+.btn{
   cursor: pointer;
+  text-decoration: none;
   margin-left: 20px;
   margin-right: 20px;
 	padding: 5px 15px;
@@ -81,7 +83,8 @@ body {
 	text-transform: uppercase;
 	font-size: 1.5em;
 	@include prefix(border-radius, 5px);
-	@include prefix(transition, background .8s ease);
+	@include prefix(transition, background .3s ease);
+	@include prefix(transition, color .3s ease);
 	@include prefix(box-shadow, 3px 3px 0 lighten($red, 10%));
 
 	&:hover {
@@ -96,6 +99,13 @@ body {
   &:focus{
     outline: 0;
   }
+
+  & a{
+    color:lighten($red, 10%);
+    &:hover{
+      color: white;
+    }
+  }
 }
 .author {
   font-family: $title;
@@ -103,4 +113,31 @@ body {
   font-size: 2em;
   text-transform: uppercase;
 }
+
+@media only screen and (max-width: 768px) {
+  .container{
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+  }
+
+  .content{
+    padding: 1rem;
+    font-size: 2em;
+    margin: 0;
+  }  
+  .details{
+    display: block;
+    text-align: center
+  }
+  .btn{
+    display: block;
+    margin: 10px auto;
+  }
+
+  .author{
+    font-size: 1rem;
+  }
+}
+
 //sass --watch style.scss:style.css
